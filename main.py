@@ -57,7 +57,7 @@ def create_menu_bar():
 def create_text_box():
     global text_content
     
-    text_content = scrolledtext.ScrolledText(window, padx=7, pady=7, undo=True, fg="#161616", font=("Ubuntu Light", 14))
+    text_content = scrolledtext.ScrolledText(window, padx=7, pady=7, undo=True, bg="#FFFFFF", fg="#161616", font=("Ubuntu Light", 14))
     text_content.pack(fill="both", expand=True)
     text_content.focus()
 
