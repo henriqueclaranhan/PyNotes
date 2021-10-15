@@ -40,8 +40,11 @@ def set_window_icon():
         window.iconphoto(True, PhotoImage(file="icon.png"))
     
     finally:
-        os.remove("icon.ico")
-        os.remove("icon.png")
+        if os.path.isfile("icon.ico"):
+            os.remove("icon.ico")
+        
+        if os.path.isfile("icon.png"):
+            os.remove("icon.png")
 
 def get_window_title():
     window_file_name = file_name
