@@ -54,8 +54,7 @@ def get_window_title():
 
     return window_file_name + " - PyNotes"
 
-def create_menu_bar():
-    menu_bar = Menu(window)
+def create_file_menu_item(menu_bar):
     file_menu = Menu(menu_bar, tearoff=False, font=("Ubuntu Light", 11))
 
     file_menu.add_command(label="New File", command=new_file)
@@ -66,7 +65,13 @@ def create_menu_bar():
     file_menu.add_separator()
     file_menu.add_command(label="Exit", command=window.quit)
 
-    menu_bar.add_cascade(label="File", menu=file_menu)
+    return file_menu
+
+def create_menu_bar():
+    menu_bar = Menu(window)
+    
+    menu_bar.add_cascade(label="File", menu=create_file_menu_item(menu_bar))
+    
     window.configure(menu=menu_bar)
 
 def create_text_box():
